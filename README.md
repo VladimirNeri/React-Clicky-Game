@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a memory game created with React.  Application's UI is broken down into components and responds to user events.
+This is a memory game created with React.  The application's UI is broken down into components and responds to user events.
 
 ### Instructions
 

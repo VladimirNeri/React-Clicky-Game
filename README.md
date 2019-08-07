@@ -22,3 +22,6 @@ This is a memory game created with React.  Application's UI is broken down into 
 * Javascript
 * NPM Packages
 
+<p>
+    <img src="https://github.com/obscura101/React-Clicky-Game/blob/gh-pages/img/screenshot.png" width="1000"/>
+</p>

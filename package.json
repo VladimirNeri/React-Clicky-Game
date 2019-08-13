@@ -1,5 +1,6 @@
 {
   "name": "react-clicky-game",
+  "homepage": "https://obscura101.github.io/React-Clicky-Game",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

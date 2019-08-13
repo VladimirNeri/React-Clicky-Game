@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar";
 import Card from "./components/Card";
 import snowflakes from "./snowflakes.json"
 
+//set the initial state of each component.  Acivity 27.  
 class App extends Component {
     state = {
       clicked: [],
@@ -14,15 +15,39 @@ class App extends Component {
       messageClass: ""
     };
 
+// Render element with updated data.  
 componentDidMount() {
     this.setState({
         gameMessage: "Click an image to begin!",
     });
 };
 
+handleClick = (event) => {
+  this.setState({
+    clicked: [...this.state.clicked, event.target.alt]
+  });
+  
+  if (this.state.clicked.includes(event.target.alt)) {
+    this.setState({
+      gameMessage: "You guessed incorrectly!",
+      score: 0,
+      clicked: [],
+      messageClass: "incorrect"
+    });
+  } else {
+    
+    this.setState({
+      gameMessage: "You guessed correctly!",
+      score: this.state.score + 1,
+      highscore: Math.max(this.state.score + 1),
+      messageClass: "correct"
+    })
+  };
+  this.setHighScore();
+  this.shuffleArray(snowflakes);
+};
 
-
-// Shuffle an array Javascript.info
+// Shuffle an array - Javascript.info
 shuffleArray(snowflakes) {
   for (let i = snowflakes.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -46,6 +71,7 @@ render() {
     return (
       <Wrapper>
         <NavBar
+          messageClass={this.state.messageClass === "incorrect" ? "incorrect" : this.state.messageClass === "correct" ? "correct" : ""}
           gameMessage={this.state.gameMessage}
           score={this.state.score}
           highscore={this.state.highscore}
@@ -55,6 +81,7 @@ render() {
           <div className="row">
             {snowflakes.map(snowflake => (
               <Card
+                className={this.state.score === 0 ? "card shake" : "card"}
                 key={snowflake.id}
                 name={snowflake.name}
                 image={snowflake.image}

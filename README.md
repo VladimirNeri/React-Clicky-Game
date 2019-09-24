@@ -22,4 +22,4 @@ This is a memory game created with React.  Application's UI is broken down into 
 * Javascript
 * NPM Packages
 
-### Live Site - https://obscura101.github.io/React-Clicky-Game/
+### Live Site - https://vladimirneri.github.io/React-Clicky-Game/
